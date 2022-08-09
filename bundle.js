@@ -41785,6 +41785,12 @@ module.exports={
     "version": "0.8.15+commit.e14f2714.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x127F2B25538671d8c89eE764dAA4bFAe5FBC48Ea",
+      "transactionHash": "0x7b711aa8d40505e66cc6fbf8e4add7836e4f217489212990501a07781f98efea"
+    },
     "1659983625402": {
       "events": {},
       "links": {},
@@ -41811,7 +41817,7 @@ module.exports={
     }
   },
   "schemaVersion": "3.4.8",
-  "updatedAt": "2022-08-09T12:19:59.549Z",
+  "updatedAt": "2022-08-09T20:10:26.025Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
@@ -41843,8 +41849,8 @@ async function upload(event) {
     let result = await node.add(file);
     console.log("File Uploaded Successful");
     const link = 'https://ipfs.infura.io/ipfs/'+result.path; 
-    console.log(file.name);
-    console.log(userName);
+    // console.log(file.name);
+    // console.log(userName);
 
     contract.methods.addFile(link, file.name, account, userName).send(
         {from:account},
@@ -41861,7 +41867,7 @@ async function initWeb3(){
         const web3 = new Web3(window.ethereum);
         var accounts = await web3.eth.getAccounts();
         var networkId = await web3.eth.net.getId();
-        console.log(networkId, accounts);
+        console.log("id = ",networkId, accounts);
         
         account = accounts[0];
         contract = new web3.eth.Contract(abi, networks[networkId].address);
