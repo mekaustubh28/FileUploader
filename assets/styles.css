@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+body{
+    background-color: whitesmoke;
+}
